@@ -7,3 +7,5 @@ torchvision
 
 pillow
 numpy
+
+sentence_transformers
