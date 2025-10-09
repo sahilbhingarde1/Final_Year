@@ -1,4 +1,8 @@
+
 import React, { useState } from "react";
+
+// Use environment variable for backend API URL
+const API_URL = process.env.REACT_APP_API_URL 
 
 const InputSection = ({ onGenerate }) => {
   const [inputValue, setInputValue] = useState("");
@@ -9,7 +13,7 @@ const InputSection = ({ onGenerate }) => {
     if (!inputValue.trim()) return;
     setLoading(true);
     try {
-      const response = await fetch("http://127.0.0.1:5000/generate-face/", {
+      const response = await fetch(API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt: inputValue }),
