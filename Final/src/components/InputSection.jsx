@@ -15,7 +15,8 @@ const InputSection = ({ onGenerate }) => {
     try {
       const response = await fetch(API_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json",
+                  "Authorization": `Bearer ${process.env.HF_TOKEN}`,},
         body: JSON.stringify({ prompt: inputValue }),
       });
       if (!response.ok) throw new Error("Failed to generate image");
